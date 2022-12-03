@@ -18,8 +18,7 @@
       }
     },
     onLoad(options) {
-      options.url = '/hybrid/html/index.html'
-      this.url = options.url || 'https://github.com/kvker/uniapp-jsbridge'
+      this.url = options.url || '/hybrid/html/index.html'
     },
     methods: {
       message(e) {

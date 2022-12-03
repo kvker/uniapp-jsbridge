@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bridge Demo</title>
-</head>
-<body>
-  
-  <script src="libs/vconsole.min.js"></script>
-  <script src="libs/uni.webview.1.5.4.js"></script>
-  <script src="libs/bridge.js"></script>
-  <script src="js/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge Demo</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      
+      button {
+        width: 240px;
+        height: 32px;
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="clickButton(event)">USERINFO</button>
+    <button onclick="clickButton(event)">OPEN_PAGE</button>
+    <button onclick="openWebviewPage(event)">OPEN_WEBVIEW_PAGE</button>
+    <button onclick="clickButton(event)">SYSTEM_INFO</button>
+    <button onclick="clickButton(event)">DEVICE</button>
+    <button onclick="clickButton(event)">CLOSE_CURRENT_PAGE_SYNC</button>
+    <button onclick="clickButton(event)">RELAUNCH_SYNC</button>
+    <button onclick="clickButton(event)">BACK_PAGE_SYNC</button>
+
+    <script src="libs/vconsole.min.js"></script>
+    <script src="libs/uni.webview.1.5.4.js"></script>
+    <script src="libs/bridge.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>

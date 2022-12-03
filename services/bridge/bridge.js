@@ -6,20 +6,10 @@ export default new class Bridge {
   }
 
   routeToSync(url) {
-    let [host, query] = url.split('?')
-    if (query && query.includes('login=') && !uni.getStorageSync('userinfo')) {
-      uni.showToast({
-        title: '未登录',
-        icon: 'none'
-      })
-      uni.navigateTo({
-        url: '/pages/account/login/login'
-      })
-    } else {
-      uni.navigateTo({
-        url: `/pages/bridge/bridge?url=${url}`
-      })
-    }
+    console.log(1)
+    uni.navigateTo({
+      url: `/pages/index/index?url=${url}`
+    })
   }
 
   /**
@@ -31,6 +21,9 @@ export default new class Bridge {
       params,
       key
     } = data
+    console.log(key)
+    console.log(params)
+    this.params = params
     return this.checkKey(key)
   }
 
@@ -39,7 +32,7 @@ export default new class Bridge {
    */
   callback(webview, key, data = {}) {
     return this.checkKey(key)
-      .then(() => this.callback_pool[key]())
+      .then(() => this.callback_pool[key](this.params, this))
       .then(params => this.runJS(webview, `bridge.reciveHandler('${key}', ${JSON.stringify({ ...params, ... data })})`))
       .then((ret) => console.log('runJS结束，返回值为: ' + ret))
   }
